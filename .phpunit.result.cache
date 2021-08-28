@@ -1,1 +1,0 @@
-{"version":1,"defects":{"Tests\\Unit\\CalculationTest::testMultiplication":4,"Tests\\CalculationTest::testMultiplication":4},"times":{"Tests\\Unit\\CalculationTest::testMultiplication":0.002,"Tests\\CalculationTest::testMultiplication":0.005}}
