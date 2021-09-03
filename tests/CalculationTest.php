@@ -1,7 +1,5 @@
 <?php
 
-namespace Tests;
-
 use App\Dollar;
 use PHPUnit\Framework\TestCase;
 
@@ -15,4 +13,8 @@ class CalculationTest extends TestCase {
 		self::assertEquals(15, $product->amount);
 	}
 
+	public function testEquality() : void {
+		self::assertTrue((new Dollar(5))->equals(new Dollar(5)));
+		self::assertFalse((new Dollar(5))->equals(new Dollar(6)));
+	}
 }
