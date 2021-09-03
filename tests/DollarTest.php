@@ -3,7 +3,7 @@
 use App\Dollar;
 use PHPUnit\Framework\TestCase;
 
-class CalculationTest extends TestCase {
+class DollarTest extends TestCase {
 
 	public function testMultiplication() : void {
 		$five = new Dollar(5);
