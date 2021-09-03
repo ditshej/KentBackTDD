@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Money;
 
+use App\Money;
 use JetBrains\PhpStorm\Pure;
 
 class Franc extends Money {
@@ -11,7 +12,7 @@ class Franc extends Money {
 	}
 
 	#[Pure]
-	public function times(int $multiplier) : self {
+	public function times(int $multiplier) : Money {
 		return new Franc($this->amount * $multiplier);
 	}
 
