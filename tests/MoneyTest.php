@@ -19,12 +19,16 @@ class MoneyTest extends TestCase {
 		self::assertEquals(Money::franc(15), $five->times(3));
 	}
 
-
 	public function testEquality() : void {
 		self::assertTrue((Money::dollar(5))->equals(Money::dollar(5)));
 		self::assertFalse((Money::dollar(5))->equals(Money::dollar(6)));
 		self::assertTrue((Money::franc(5))->equals(Money::franc(5)));
 		self::assertFalse((Money::franc(5))->equals(Money::franc(6)));
 		self::assertFalse((Money::franc(5))->equals(Money::dollar(5)));
+	}
+
+	public function testCurrency() : void {
+		self::assertEquals('USD', Money::dollar(1)->currency());
+		self::assertEquals('CHF', Money::franc(1)->currency());
 	}
 }

@@ -8,16 +8,26 @@ use JetBrains\PhpStorm\Pure;
 
 abstract class Money {
 
+	protected string $currency;
 	protected int $amount;
+
+	public function __construct(int $amount, string $currency) {
+		$this->amount = $amount;
+		$this->currency = $currency;
+	}
 
 	#[Pure]
 	public static function dollar(int $amount) : Money {
-		return new Dollar($amount);
+		return new Dollar($amount, 'USD');
 	}
 
 	#[Pure]
 	public static function franc(int $amount) : Money {
-		return new Franc($amount);
+		return new Franc($amount, 'CHF');
+	}
+
+	public function currency() : string {
+		return $this->currency;
 	}
 
 	public function equals(Money $money) : bool {
