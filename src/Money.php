@@ -6,12 +6,10 @@ use JetBrains\PhpStorm\Pure;
 
 class Money implements Expression {
 
-	protected string $currency;
-	protected int $amount;
-
-	public function __construct(int $amount, string $currency) {
-		$this->amount = $amount;
-		$this->currency = $currency;
+	public function __construct(
+			public int $amount,
+			protected string $currency
+	) {
 	}
 
 	#[Pure]
@@ -40,8 +38,12 @@ class Money implements Expression {
 	}
 
 	#[Pure]
-	public function plus(Money $addened) : Expression {
-		return new Money($this->amount + $addened->amount, $this->currency);
+	public function plus(Money $addend) : Expression {
+		return new Sum($this, $addend);
+	}
+
+	public function reduce(string $to) : Money {
+		return $this;
 	}
 
 }
