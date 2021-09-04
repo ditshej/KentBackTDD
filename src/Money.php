@@ -2,11 +2,9 @@
 
 namespace App;
 
-use App\Money\Dollar;
-use App\Money\Franc;
 use JetBrains\PhpStorm\Pure;
 
-class Money {
+class Money implements Expression {
 
 	protected string $currency;
 	protected int $amount;
@@ -39,6 +37,11 @@ class Money {
 	#[Pure]
 	public function times(int $multiplier) : Money {
 		return new Money($this->amount * $multiplier, $this->currency);
+	}
+
+	#[Pure]
+	public function plus(Money $addened) : Expression {
+		return new Money($this->amount + $addened->amount, $this->currency);
 	}
 
 }
