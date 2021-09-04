@@ -8,4 +8,6 @@ interface Expression {
 
 	public function plus(Expression $addend) : Expression;
 
+	public function times(int $multiplier) : Expression;
+
 }
