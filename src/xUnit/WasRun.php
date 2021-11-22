@@ -2,13 +2,12 @@
 
 namespace App\xUnit;
 
-class WasRun {
+class WasRun extends TestCase {
 	public bool $wasRun = false;
 
-	public function __construct($name) {
-	}
-
-	public function testMethod() {
+	public function testMethod() : void {
 		$this->wasRun = true;
 	}
+
+
 }
