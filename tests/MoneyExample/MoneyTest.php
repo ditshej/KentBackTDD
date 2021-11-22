@@ -1,8 +1,10 @@
 <?php
 
-use App\Bank;
-use App\Money;
-use App\Sum;
+namespace MoneyExample;
+
+use App\MoneyExample\Bank;
+use App\MoneyExample\Money;
+use App\MoneyExample\Sum;
 use PHPUnit\Framework\TestCase;
 
 class MoneyTest extends TestCase {
