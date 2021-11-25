@@ -18,4 +18,10 @@ class TestCaseTest extends TestCase {
 		$result = $test->run();
 		self::assertSame('1 run, 0 failed', $result->summary());
 	}
+
+	public function testFailedResult() : void {
+		$test = new WasRun('testBrokenMethod');
+		$result = $test->run();
+		self::assertSame('1 run, 1 failed', $result->summary());
+	}
 }

@@ -10,11 +10,12 @@ class TestCase {
 	}
 
 	public function run() : TestResult {
-		// $results->testStarted();
+		$result = new TestResult();
+		$result->testStarted();
 		$this->setUp();
 		$this->{$this->name}();
 		$this->tearDown();
-		return new TestResult();
+		return $result;
 	}
 
 	public function tearDown() : void {
