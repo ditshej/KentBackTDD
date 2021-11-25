@@ -13,7 +13,11 @@ class TestCase {
 		$result = new TestResult();
 		$result->testStarted();
 		$this->setUp();
-		$this->{$this->name}();
+		if (method_exists($this, $this->name)) {
+			$this->{$this->name}();
+		} else {
+			$result->testFailed();
+		}
 		$this->tearDown();
 		return $result;
 	}
