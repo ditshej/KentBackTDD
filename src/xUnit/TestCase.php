@@ -9,8 +9,7 @@ class TestCase {
 	public function setUp() : void {
 	}
 
-	public function run() : TestResult {
-		$result = new TestResult();
+	public function run(TestResult $result) : void {
 		$result->testStarted();
 		$this->setUp();
 		if (method_exists($this, $this->name)) {
@@ -19,7 +18,6 @@ class TestCase {
 			$result->testFailed();
 		}
 		$this->tearDown();
-		return $result;
 	}
 
 	public function tearDown() : void {
